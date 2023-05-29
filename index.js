@@ -29,7 +29,7 @@ const getUserInput = async () => {
         await fs.promises.writeFile('examples/logo.svg', logo.renderSVG());
         console.log('Successfully generated a logo.svg in the examples folder.');
     } catch (error) {
-        console.log(error);
+        console.log('An error has occured: ' + error.message);
     }
 }
 
