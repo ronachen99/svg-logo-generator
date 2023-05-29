@@ -11,25 +11,25 @@ const getUserInput = async () => {
         const data = await inquirer.prompt(questions);
 
         if (data.text.length === 0 || data.text.length > 3) {
-            throw ('Invalid Text: Logo text should be more than 0 and less than 3 characters in length.');
+            throw new Error('Invalid Text: Logo text should be more than 0 and less than 3 characters in length.');
         };
 
-        if (!validateColor(data.textColour)){
-             throw ('Invalid Text Colour: File creation aborted.');
+        if (!validateColor(data.textColour)) {
+            throw new Error('Invalid Text Colour: File creation aborted.');
         };
 
-        if (!validateColor(data.shapeColour)){
-             throw ('Invalid Shape Colour: File creation aborted.');
+        if (!validateColor(data.shapeColour)) {
+            throw new Error('Invalid Shape Colour: File creation aborted.');
         };
 
         const logoShape = setShape(data.shape);
-        logoShape.setColour(data.shapeColour); 
+        logoShape.setColour(data.shapeColour);
         const logo = new Logo(data.text, data.textColour, logoShape);
 
         await fs.promises.writeFile('examples/logo.svg', logo.renderSVG());
         console.log('Successfully generated a logo.svg in the examples folder.');
     } catch (error) {
-        console.log('An error has occured: ' + error.message);
+        console.log(error.message);
     }
 }
 
