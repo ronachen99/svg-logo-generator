@@ -9,12 +9,23 @@ const fs = require('fs');
 const questions = require('./lib/questions');
 const { Circle, Square, Triangle } = require('./lib/shapes');
 const Logo = require('./lib/generateLogo');
+const validateColor = require("validate-color").default;
 
 //==========================================================================================================================================//
 //--------------------------------------------------Get User Input: set values for the logo-------------------------------------------------//
 const getUserInput = async () => {
     try {
         const data = await inquirer.prompt(questions);
+
+        // Check if the user entry is a valid colour
+        if (!validateColor(data.textColour)) {
+            throw new Error('Invalid Text Colour: File creation aborted.');
+        };
+
+        if (!validateColor(data.shapeColour)) {
+            throw new Error('Invalid Shape Colour: File creation aborted.');
+        };
+
         const logoShape = setShape(data.shape);
         logoShape.setColour(data.shapeColour);
         const logo = new Logo(data.text, data.textColour, logoShape);
