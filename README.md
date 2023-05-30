@@ -15,13 +15,13 @@ By utilizing this SVG logo generator, users can save significant time and effort
   - [Installation](#installation)
   - [Usage](#usage)
   - [Credits](#credits)
+  - [License](#license)
 
 <br>
 
 ## Demonstration
 Application Demonstration:\
-Watch it on [Google Drive](https://drive.google.com/file/d/10m3alkippgPhJsAk69XcE5XIPcLSRT3P/view)\
-![Video of the application running a test using Jest, and prompting users for input to create the logo](/assets/video/Walkthrough.mp4)
+Watch it on [Google Drive](https://drive.google.com/file/d/10m3alkippgPhJsAk69XcE5XIPcLSRT3P/view)
 
 Application Preview:\
 ![Screenshot of the integrated terminal with inquirer prompts and answers shown](/assets/images/Screenshot.png)
@@ -66,3 +66,7 @@ Additionally, it utilizes two inquirer plugins, namely chalk-pipe and maxlength-
 Furthermore, the application relies on another npm package called Validate Color to validate and ensure the accuracy of color inputs.
 
 <br>
+
+## License
+
+The application is covered under the [MIT License](https://github.com/ronachen99/svg-logo-generator/blob/main/LICENSE). Please refer to the documentation for more details.
